@@ -7,7 +7,7 @@
 git version control project
 
 ### Description
-A Project to show the skills in changing and tracking data in a git repo
+A Project to show the skills in changing and tracking data in a git repo. Final project for nano degree from udacity. 
 
 ### Files used
 chicago.csv
