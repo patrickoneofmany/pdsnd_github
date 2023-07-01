@@ -217,8 +217,8 @@ def user_stats(df):
 
 def raw_data_request(counter,df):
     """ funktion checks if user wants to see (more) raw data and handles error input of user"""
-    raw_data_answer = input('\nWould you like to see (more) raw data? Enter yes or no.\n')
-    while raw_data_answer.lower() not in ['yes','no']:
+    raw_data_answer = input('\nWould you like to see (more) raw data? Enter yes or no.\n') 
+    while raw_data_answer.lower() not in ['yes','no']: # while loop to handle potential typos
         print('Did you make a typo?')
         raw_data_answer = input('\nWould you like to see (more) raw data? Enter yes or no.\n')
     if raw_data_answer.lower()=='yes':
@@ -266,7 +266,7 @@ def restart_func():
 
 
 def main():
-    while True:
+    while True: # while Loop to keep the program running until User wants to stop.
         city, month, day = get_filters()
         df = load_data(city, month, day)
 
