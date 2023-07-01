@@ -225,6 +225,7 @@ def raw_data_request(counter,df):
 def raw_data_display(counter,df):
     """showing raw data to the user if he wants"""
     print('Here are 5 rows of raw data ')
+    pd.set_option(“display.max_columns”,200)
     if (counter+1)*5< df.shape[0]:   #checking if enough rows are left to print something
         df_display=df.iloc[counter*5:((counter+1)*5),:]  # show following 5 rows
         print(df_display)
