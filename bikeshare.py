@@ -7,6 +7,30 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+def check_data_entry(prompt, valid_entries): 
+    """
+    Asks user to type some input and verify if the entry typed is valid.
+    Since we have 3 inputs to ask the user in get_filters(), it is easier to write a function.
+    Args:
+        (str) prompt - message to display to the user
+        (list) valid_entries - list of string that should be accepted 
+    Returns:
+        (str) user_input - the user's valid input
+    """
+    try:
+        user_input = str(input(prompt)).lower()
+
+        while user_input not in valid_entries : 
+            print('Sorry... it seems like you\'re not typing a correct entry.')
+            print('Let\'s try again!')
+            user_input = str(input(prompt)).lower()
+
+        print('Great! the chosen entry is: {}\n'.format(user_input))
+        return user_input
+
+    except:
+        print('Seems like there is an issue with your input')
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -16,44 +40,24 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    citys = ['chicago', 'new york city', 'washington']
-    city=[]
-    
-    while city not in citys:
-        print('What city (chicago, new york city, washington) are you interested in?')
-        city_input = input("Insert your city name here:").lower()
-        if city_input not in citys:
-            print('Did you make a tipo? Your input is not valid.')
-       
-        else:
-            city =  city_input
-            
-     # TO DO: get user input for month (all, january, february, ... , june)
-    months = ['january', 'february', 'march', 'april', 'may', 'june','all']
-    month=[]
-    while month not in months:
-        print('What month ((january, february, ... , june) write the full month name or *all*) are you      interested in?')
-        month_input = input("Insert your month name here:").lower()
-        if month_input not in months:
-            print('Did you make a tipo? Your input is not valid.')
-       
-        else:
-            month =  month_input
-    
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday','all']
-    day=[]
-    while day not in days:
-        print('What day (pls. write the full day name) are you interested in?')
-        day_input = input("Insert your day name here:").lower()
-        if day_input not in days:
-            print('Did you make a tipo? Your input is not valid.')
-        else:
-            day=day_input
-            
 
+    print('Hi there! Let\'s explore some US bikeshare data!')
+
+    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    valid_cities = CITY_DATA.keys()
+    prompt_cities = 'Please choose one of the 3 cities (chicago, new york city, washington): '
+    city = check_data_entry(prompt_cities, valid_cities)
+
+
+    # get user input for month (all, january, february, ... , june)
+    valid_months = ['all','january','february','march','april','may','june']
+    prompt_month = 'Please choose a month (all, january, february, ... , june): '
+    month = check_data_entry(prompt_month, valid_months)
+
+    # get user input for day of week (all, monday, tuesday, ... sunday)
+    valid_days = ['all','monday','tuesday','wednesday','thursday','friday','saturday', 'sunday']
+    prompt_day = 'Please choose a day (all, monday, tuesday, ... sunday): '
+    day = check_data_entry(prompt_day, valid_days)
 
 
     print('-'*40)
