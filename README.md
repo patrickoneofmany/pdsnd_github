@@ -8,7 +8,8 @@ git version control project with bikeshare project as input.
 
 ### Description
 A Project to show the skills in changing and tracking data in a git repo. Final project for nano degree from udacity.
-Bikeshare project was an input, where data of a bike share company was evaluated. The program to evaluate the data was written in python. That code now should be improved in a git project to show the skills in version control.  
+Bikeshare project was an input, where data of a bike share company was evaluated. The program to evaluate the data was written in python. The program starts with a filter whrer the user can enter his personal filter conditions to the raw data. Then the rawdata is loaded from csv files. The evaluation returns statistical data and if the user wants also raw data insights. 
+That code now should be improved in a git project to show the skills in version control.  
 
 ### Files used
 chicago.csv
